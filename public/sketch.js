@@ -1,22 +1,31 @@
 let angle = 0;
 let bg;
+let casey;
+
+function preload() {
+  casey = loadImage('casey.jpg');
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
+
 
   _text = createGraphics(window.innerWidth - 4, window.innerHeight - 4);
   _text.textFont('Source Code Pro');
   _text.textAlign(CENTER);
   _text.textSize(50);
   _text.fill(0);
-  _text.text('welcome to my zone', width * 0.5, height * 0.5);
+  _text.text('casey love joker', width * 0.5, height * 0.5);
 }
 
 function draw() {
   background(255);
   fill(0, 0, 255);
 
+  ambientLight(255);
+
   normalMaterial();
+  texture(casey);
   translate(-width/4, 0, 0);
   push();
   rotateX(angle * 0.25);
