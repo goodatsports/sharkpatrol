@@ -1,6 +1,7 @@
 let angle = 0;
 let bg;
 let casey;
+let song;
 
 function preload() {
   casey = loadImage('casey.jpg');
