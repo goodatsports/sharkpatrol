@@ -1,14 +1,15 @@
 {
-  "name": "sketch.js",
+  "name": "sharkpatrol",
   "version": "1.0.0",
-  "description": "hi",
-  "main": "sketch.js",
+  "description": "personal website made with three.js, node, and express",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Jack Chambers",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "three": "^0.117.0"
   }
 }
