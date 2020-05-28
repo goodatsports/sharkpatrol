@@ -54,20 +54,15 @@ function init() {
     animate();
 }
 
-function oscillateCube() {
+function animateCube () {
     mesh.position.y = center_height + 1.5 * Math.sin(performance.now() / 2500);
-}
-
-function rotateCube() {
     mesh.rotation.z += 0.002;
     mesh.rotation.x += 0.002;
 }
 
- 
 function animate() {
     requestAnimationFrame(animate);
-    rotateCube();
-    oscillateCube();
+    animateCube();
     renderer.render(scene, camera);
 }
 
@@ -76,10 +71,8 @@ function onWindowResize() {
     camera.updateProjectionMatrix();
   
     renderer.setSize(container.clientWidth, container.clientHeight);
-  }
+}
   
 window.addEventListener("resize", onWindowResize);
-  
-
 init();
 
