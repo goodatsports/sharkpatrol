@@ -13,6 +13,7 @@ let scene;
 
 
 function init() {
+    
     // Declare variables
     container = document.querySelector('.scene');
     const planeSize = 10;
@@ -21,62 +22,65 @@ function init() {
     const near = 0.1;
     const far = 1000;
 
-    // Create scene
+    // Create scene, camera, lights, renderer, cube mesh, floor mesh
     scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+    ambien = new THREE.AmbientLight(0xffffff, 0.5);
+    dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    texture = new THREE.TextureLoader().load( '../assets/textures/texture.jpg' ); 
+
+    // Cube mesh
+    geometry = new THREE.BoxBufferGeometry(3, 3, 3);
+    material = new THREE.MeshPhongMaterial({ map: texture });
+    cubeMesh = new THREE.Mesh(geometry, material);
+
+    // Floor plane mesh
+    planeGeo = new THREE.PlaneBufferGeometry(planeSize, planeSize);
+    planeMat = new THREE.MeshPhongMaterial({
+        emissive: 0xffffff,
+        emissiveIntensity: 0.3
+    })
+    planeMesh = new THREE.Mesh(planeGeo, planeMat);
+
+
+     // Renderer setup
+     renderer.setSize(container.clientWidth, container.clientHeight);
+     renderer.setPixelRatio(window.devicePixelRatio);
+     renderer.shadowMap.enabled = true;
+     renderer.shadowMap.type = THREE.BasicShadowMap;
+     container.appendChild(renderer.domElement);
 
     // Camera Setup
-    camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     camera.position.set(0, 5, 30);
-
-    // Lighting Setup
     
     // Ambient light
-    ambien = new THREE.AmbientLight(0xffffff, 0.5);
     ambien.position.set(0, 5, 3);
-    scene.add(ambien);
 
     // Directional light with shadows enabled
-    dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
     dirLight.position.set(0, 50, 30);
     dirLight.castShadow = true;
     dirLight.shadow.mapSize.width = 512;
     dirLight.shadow.mapSize.height = 512;
     dirLight.shadow.camera.far = 100;
     dirLight.shadow.camera.near = 0.2; 
-    scene.add(dirLight); 
-
-    // Renderer setup
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.BasicShadowMap;
-    container.appendChild(renderer.domElement);
-
-    // Create cube mesh and add to scene
-    geometry = new THREE.BoxBufferGeometry(3, 3, 3);
-    texture = new THREE.TextureLoader().load( '../assets/textures/texture.jpg' );
-    material = new THREE.MeshPhongMaterial({ map: texture });
-    cubeMesh = new THREE.Mesh(geometry, material);
-
+    
+    // Cube mesh settings
     cubeMesh.position.set(3,3,3);
     cubeMesh.castShadow = true;
     cubeMesh.receiveShadow = true;
-    scene.add(cubeMesh);
-
-    // Create floor plane and add to scene
-    planeGeo = new THREE.PlaneBufferGeometry(planeSize, planeSize);
-    planeMat = new THREE.MeshPhongMaterial({
-        emissive: 0xffffff,
-        emissiveIntensity: 0.3
-    })
-
-    planeMesh = new THREE.Mesh(planeGeo, planeMat);
     
+    // Floor mesh settings    
     planeMesh.rotation.x = Math.PI * -.5;
     planeMesh.position.y = cubeMesh.position.y - 5;
     planeMesh.receiveShadow = true;
+     
+
+    // Add everything to scene
+    scene.add(ambien);
     scene.add(planeMesh);
+    scene.add(dirLight);
+    scene.add(cubeMesh);
 
     // Get starting cubecubeMesh height
     centerHeight = cubeMesh.position.y;
@@ -85,7 +89,6 @@ function init() {
     camera.lookAt(cubeMesh.position);
 
     //debugTools();
-    animate();
 }
 
 function animateCube () {
@@ -114,5 +117,11 @@ function debugTools() {
 }
   
 window.addEventListener("resize", onWindowResize);
-init();
+
+// Load texture
+var sceneLoader = new Promise(() => {
+    init();
+}); 
+
+sceneLoader.then(animate());
 
