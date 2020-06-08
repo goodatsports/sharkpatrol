@@ -37,6 +37,7 @@ body {
     z-index: 101;
     left: 50%;
     bottom: 15%;
+    margin-left: -30.665px;
     animation: fadeInAnimation ease 2s;
     display:inline-block;
     padding:0.35em 1.2em;
