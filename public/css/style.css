@@ -13,6 +13,9 @@ body {
 }
 
 .hidden {
+    position: absolute;
+    left: 50%;
+    bottom: 15%;
     animation: fadeOutAnimation ease 0.5s;
     animation-fill-mode: forwards;
     display:inline-block;
@@ -30,6 +33,10 @@ body {
 }
 
 .btn {
+    position: absolute;
+    z-index: 101;
+    left: 50%;
+    bottom: 15%;
     animation: fadeInAnimation ease 2s;
     display:inline-block;
     padding:0.35em 1.2em;
@@ -50,14 +57,6 @@ body {
     color: rgb(0, 0, 0);
     cursor: pointer;
     transition: all 0.2s;
-}
-
-.info {
-    position: absolute;
-    z-index: 101;
-    padding: 5px;
-    left: 50%;
-    bottom: 15%;
 }
 
 .modal-bg {
@@ -90,8 +89,8 @@ body {
     border-radius: 5px;
     background-color: #ebfbf4;
     display: flex;
-    height: 30%;
-    width: 40%;
+    height: 40%;
+    width: 60%;
     justify-content: space-around;
     align-items: center;
     opacity: 90%;
@@ -110,6 +109,35 @@ body {
     right: 3%;
     font-weight: bolder;
     cursor: pointer;
+}
+
+.mobile-modal-close {
+    visibility: hidden;
+    cursor: pointer;
+    position: fixed;
+    z-index: 101;
+    left: 45%;
+    bottom: 2%;
+    animation: fadeInAnimation ease 2s;
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:300;
+    color: #ffffff;
+    background-color: #000000;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+.mobile-modal-close:hover {
+    background-color: rgb(129, 129, 129);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
 .scene,
@@ -141,3 +169,24 @@ canvas {
         visibility: hidden;
      } 
 } 
+
+@media (max-width: 800px) {
+    .modal {
+        height: 90%;
+        width: 75%;
+    }
+
+    .modal-body {
+        padding: 1px;
+
+    }
+
+    .modal-close {
+        visibility: hidden;
+    }
+
+    .mobile-modal-close {
+        visibility: visible;
+    }
+
+  }

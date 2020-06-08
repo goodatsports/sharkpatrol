@@ -122,17 +122,23 @@ var sceneLoader = new Promise(() => {
 var modalBtn = document.querySelector('.btn');
 var modalBg = document.querySelector('.modal-bg');
 var modalClose = document.querySelector('.modal-close');
+var mobileModalClose = document.querySelector('.mobile-modal-close');
 
 modalBtn.addEventListener('click', function() {
     modalBg.classList.add('bg-active');
     modalBtn.className = 'hidden';
-    void modalBtn.offsetWidth;
 });
 
-modalClose.addEventListener('click', function() {
-    modalBg.classList.remove('bg-active');
-    modalBtn.className = 'btn';
-});
+// Change modal close button based on window size
+    modalClose.addEventListener('click', function() {
+        modalBg.classList.remove('bg-active');
+        modalBtn.className = 'btn';
+    });
+
+    mobileModalClose.addEventListener('click', function() {
+        modalBg.classList.remove('bg-active');
+        modalBtn.className = 'btn';
+    });
 
 
 window.addEventListener("resize", onWindowResize);
