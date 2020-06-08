@@ -12,10 +12,19 @@ body {
     overflow: hidden;
 }
 
+.container {
+    position: absolute;
+    width: 100%;
+    bottom: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .hidden {
     position: absolute;
-    left: 50%;
-    bottom: 15%;
+ 
     animation: fadeOutAnimation ease 0.5s;
     animation-fill-mode: forwards;
     display:inline-block;
@@ -33,13 +42,12 @@ body {
 }
 
 .btn {
-    position: absolute;
+    position: relative;
     z-index: 101;
-    left: 50%;
-    bottom: 15%;
-    margin-left: -30.665px;
+    margin-left: auto;
+    margin-right: auto;
     animation: fadeInAnimation ease 2s;
-    display:inline-block;
+    display:inline;
     padding:0.35em 1.2em;
     border:0.1em solid #FFFFFF;
     margin:0 0.3em 0.3em 0;
