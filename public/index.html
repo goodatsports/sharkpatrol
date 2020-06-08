@@ -6,11 +6,31 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet'>
         <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+        <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
         <title>Sharkpatrol</title>
     </head>
     <body>
+        <div class="modal-bg">
+            <div data-simplebar class="modal">
+                <div class="modal-body">
+                    <h2>About</h2>
+                    <p>Hi there, my name is Jack Chambers and this is my personal website. At the moment it is a bit bare, 
+                    but I will be updating it over time with info on projects I am working on. Currently, I am interested in using 3D graphics in a web context, learning various web frameworks, and video game development.</p>
+                    
+                    <p>I have 4+ years of experience working in the IT field with companies of various sizes in San Francisco and Seattle. I am currently based out of Oakland, California. 
+                    I am currently looking for IT Engineer and Junior Software Developer roles. You can view my resume <a href="https://www.visualcv.com/pmpstjpoc0y/">here</a>. </p>
+
+                    <p>The source for this website can be found on <a href="https://github.com/goodatsports/sharkpatrol">github</a>. At the moment, it is a static website hosted on AWS. 
+                    Three.js provides the WebGL rendering and composition, and Node provides the routing and local development environment.</p>
+
+                </div>
+                <span class="modal-close">x</span>
+            </div>
+        </div>
+        
         <div class="info">
-            <a href="https://www.visualcv.com/pmpstjpoc0y/">Info</a>
+            <button class="btn">Info</button>
         </div>
             <div class="scene"></div>
         <script src="./js/three.min.js"></script>

@@ -1,26 +1,121 @@
 
+* {
+    font-family: 'Inconsolata';
+    font-style: italic;
+}
 
 body {
     animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    font-family: 'Inconsolata';
-    font-style: italic;
     font-size: 22px;
     overflow: hidden;
 }
 
+.hidden {
+    animation: fadeOutAnimation ease 0.5s;
+    animation-fill-mode: forwards;
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:300;
+    color: #ffffff;
+    background-color: #000000;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+.btn {
+    animation: fadeInAnimation ease 2s;
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:300;
+    color: #ffffff;
+    background-color: #000000;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background-color: rgb(129, 129, 129);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
 .info {
     position: absolute;
-    z-index: 100;
+    z-index: 101;
     padding: 5px;
     left: 50%;
-    bottom: 80%;
+    bottom: 15%;
+}
+
+.modal-bg {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.bg-active {
+    visibility: visible;
+    opacity: 1;
+
+}
+
+.modal {
+    position: relative;
+    padding: 1.6rem 3rem;
+    box-shadow: 3px 5px 0 rgba(0, 0, 0, 0.2);
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: #ebfbf4;
+    display: flex;
+    height: 30%;
+    width: 40%;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 90%;
+    backdrop-filter: blur(4px);
+}
+
+.modal-body {
+    overflow-y: auto;
+    max-height: 100%;
+    padding: 25px;
+}
+
+.modal-close {
+    position: fixed;
+    top: 2%;
+    right: 3%;
+    font-weight: bolder;
+    cursor: pointer;
 }
 
 .scene,
 canvas {
     position: absolute;
+    z-index: 1;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -34,5 +129,15 @@ canvas {
     } 
     100% { 
         opacity: 1; 
+     } 
+}
+
+@keyframes fadeOutAnimation { 
+    0% { 
+        opacity: 1; 
+    } 
+    100% { 
+        opacity: 0;
+        visibility: hidden;
      } 
 } 

@@ -87,8 +87,6 @@ function init() {
 
     // Set cubecubeMesh to be center of window
     camera.lookAt(cubeMesh.position);
-
-    //debugTools();
 }
 
 function animateCube () {
@@ -115,13 +113,28 @@ function debugTools() {
     helper = new THREE.DirectionalLightHelper(dirLight, 5);
     scene.add(helper);
 }
-  
-window.addEventListener("resize", onWindowResize);
 
 // Load texture
 var sceneLoader = new Promise(() => {
     init();
 }); 
 
+var modalBtn = document.querySelector('.btn');
+var modalBg = document.querySelector('.modal-bg');
+var modalClose = document.querySelector('.modal-close');
+
+modalBtn.addEventListener('click', function() {
+    modalBg.classList.add('bg-active');
+    modalBtn.className = 'hidden';
+    void modalBtn.offsetWidth;
+});
+
+modalClose.addEventListener('click', function() {
+    modalBg.classList.remove('bg-active');
+    modalBtn.className = 'btn';
+});
+
+
+window.addEventListener("resize", onWindowResize);
 sceneLoader.then(animate());
 
