@@ -106,7 +106,8 @@ img {
 
 .inline-block {
     width: 100%;
-    display: flex;
+    display: flex;    
+    flex-wrap: wrap;
     padding: 5px;
     
 }
