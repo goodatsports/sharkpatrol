@@ -1,40 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet'>
-        <link rel="stylesheet" href="./css/style.css" />
-        <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
-        <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
-        <title>Sharkpatrol</title>
-    </head>
-    <body>   
-        <div class="modal-bg">
-            <div data-simplebar class="modal">
-                <div class="modal-body">
-                    <button class ="mobile-modal-close">Close</button>
-                    <h2>About</h2>
-                    <p>Hi there, my name is Jack Chambers and this is my personal website. At the moment it is a bit bare, 
-                    but I will be updating it over time with info on projects I am working on. Currently, I am interested in using 3D graphics in a web context, learning various web frameworks, and video game development.</p>
-                    
-                    <p>I have 4+ years of experience working in the IT field with companies of various sizes in San Francisco and Seattle. I am currently based out of Oakland, California. 
-                    I am currently looking for IT Engineer and Junior Software Developer roles. You can view my resume <a href="https://www.visualcv.com/pmpstjpoc0y/">here</a>. </p>
 
-                    <p>The source for this website can be found on <a href="https://github.com/goodatsports/sharkpatrol">github</a>. At the moment, it is a static website hosted on AWS. 
-                    Three.js provides the WebGL rendering and composition, and Node provides the routing and local development environment.</p>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" />
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+    <title>Sharkpatrol</title>
+</head>
+
+<body>
+    <div class="modal-bg">
+        <div data-simplebar class="modal">
+            <div class="modal-body">
+                <div>
+                    <button onclick="openTab('about')">About</button>
+                    <button onclick="openTab('projects')">Projects</button>
+                    <button onclick="openTab('articles')">Articles</button>
+                    <button onclick="openTab('music')">Music</button>
                 </div>
-                <span class="modal-close">x</span>
-            </div>
-        </div>
-        <div class="container"><button class="btn">Info</button></div>
-        
+                <button class="mobile-modal-close">Close</button>
+                <div id="about" class="tab">
+                    <h2>About</h2>
+                    <p>
+                        Hi there, my name is Jack Chambers and this is my personal website.
+                        <br><br>
+                        At the moment it is a bit bare, but I will be updating it over time with info on projects I am working on. Currently, 
+                        I am interested in using 3D graphics in a web context and learning game development principles and frameworks, especially Unity.
+                    </p>
+                    <p>
+                        I have 4+ years of experience working in the IT field with companies of various sizes in San
+                        Francisco and Seattle. I am currently based out of Oakland, California.
+                        I am currently looking for IT Engineer and Junior Software Developer roles. You can view my
+                        resume <a href="https://www.visualcv.com/pmpstjpoc0y/" target="_blank">here</a>. 
+                    </p>
+                    <p>
+                        The source for this website can be found on <a href="https://github.com/goodatsports/sharkpatrol" target="_blank">github</a>. 
+                        At the moment, it is a static website hosted on AWS. 
+                        Three.js provides the WebGL rendering and composition, and Node provides the routing and local development environment.
+                    </p>
+                </div>
+                <div id="projects" class="tab" style="display:none">
+                    <h2>Projects</h2>
+                    <p>
+                        <i>You can view the repos for various personal projects I've worked on on my <a href="https://github.com/goodatsports" target="_blank">github</a>.</i>
+                    </p>
+                    <p>
+                        <ul>
+                            <li>
+                                <div>
+                                    <h3>Homecoming</h3>
+                                    <div class="inline-block">
+                                        <img src="assets/img/homecoming1b.png">
+                                        <img src="assets/img/homecoming2b.png">
+                                    </div>
+                                    <div class="inline-block">
+                                        <img src="assets/img/homecoming3b.png">
+                                        <img src="assets/img/homecoming4b.png">
+                                    </div>
+                                    
+                                    <p>
+                                        This is a vertical slice prototype for a video game I'm currently working on in Unity. It's intentionally no-frills, and is meant 
+                                        to be a synthesis of various development, design, and project management topics I have been teaching myself over the past few months.
+                                        It currently has a choice-driven dialog system, an interactive tile-based environment using Unity's built-in Tilemaps and ScriptableObjects, 
+                                        grid-based player movement, and various other basic features. 
+                                    </p>
+                                    <p>
+                                        Besides basing tiles off of a free asset pack from <a href=https://www.kenney.nl/assets/bit-pack>Kenney.nl</a>, 
+                                        everything else has been built from scratch using Unity and its C# API.
+                                        I will upload the source code to github once it is complete, and try to embed a WebGL build of it on this page soon after.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3>Looking for Group</h3>
+                                    
+                                        <iframe class="video" src="https://www.youtube.com/embed/FeXRPoPCgjk?start=2859" 
+                                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen></iframe>
+                                <br>
+                                    <i>(If it doesn't set automatically, my demonstration starts at 47:39.)</i>
+                                    <p>
+                                        This was my capstone project for Actualize, a full-stack bootcamp for Ruby on Rails, Vue.js, and Postgresql that I attended in 2017. 
+                                        It was meant to function as a supplemental tool for finding people to play multiplayer games with, especially games with smaller 
+                                        playerbases or otherwise do not have robust community tools. It integrates with your Steam library and allows the user to select which games 
+                                        they are looking for others to play with. This was a really rewarding project to work on, and helped solidify a lot of the foundational knowledge the bootcamp taught us.
+                                        You can view the source code <a href="https://github.com/goodatsports/lfg">here</a>.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </p>    
+                </div>
+                <div id="articles" class="tab" style="display:none">
+                    <h2>Articles</h2>
+                    <p>
+                        <div id="medium-widget"></div>
+                        <script src="https://medium-widget.pixelpoint.io/widget.js"></script>
+                        <script>MediumWidget.Init({renderTo: '#medium-widget', 
+                            params: {"resource":"https://medium.com/@goodatsports/how-to-make-a-simple-discord-bot-in-ruby-to-annoy-your-friends-f5d0438daa70",
+                            "postsPerLine":1,"limit":4,"picture":"small","fields":["description","author","claps","publishAt"],"ratio":"original"}})</script>
 
-            <div class="scene"></div>
-        <script src="./js/three.min.js"></script>
-        <script src="./js/main.js"></script>
-    </body>
+                    </p>
+                </div>
+                <div id="music" class="tab" style="display:none">
+                    <h2>Music</h2>
+                    <p>
+                        <h3>Life Functions Critical</h3>
+
+                        <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=1&feed=%2Fjack-chambers2%2Flife-functions-critical%2F" frameborder="0" ></iframe>
+                       <p> 
+                           <i>Inspirations: Y2K-era digital media, 90s UK rave optimism, Playstation 1 soundtracks (esp. the work of Soichi Terada),
+                        golden era jungle, Hiroshi Yoshimura, Lorenzo Senni's pointilistic trance, nightcore, social isolation, 
+                        Ursula K. LeGuin's speculative visions of a more just world, 
+                        the sci-fi body horror works of John Carpenter and Junji Ito, 2001: A Space Odyssey </i>                        
+                        </p>
+                        
+                        <p><i>Tracklist available on request.</i></p>
+                        <p>
+                            I recorded a more improvised version of this mix live on Twitch for a few friends at the beginning of quarantine in March of 2020. 
+                            This version is a more refined draft which aired on Lower Grand Radio sometime in May. 
+                            When the feeling of being separated from your friends and the outside world still felt novel, 
+                            I felt compelled to record something that encompassed the wide range of emotions that came with adjusting to life in isolation. 
+                            </p>
+
+                        <p>
+                            This mix oscillates between feelings of remiscience and gratitude for those that you love, the existential anxiety of uncertainty, 
+                            the despair of unnecessary death and deep-seated injustice, the questioning of one's own identity in the face of an untenable status quo, 
+                            the prospective joy at the possibility of a more just world. The feeling of ecstatic connection to yourself and those around you, 
+                            informed by the then not-so-distant memories of dancing with friends and strangers in basements and on night-covered hilltops. 
+                            The numbness of offloading your life to Zoom calls, impersonal doctor's visits via FaceTime, and the general abstraction of one's body and relationships through the social media economy. 
+                        </p>
+                        
+                        <p>All the tracks chosen are somewhere in the 150-165 bpm range, with some being squeezed or stretched to fit those bounds. 
+                            I have always been fond of "faster" dance music genres, especially jungle, due to its ability to balance driving rhythmic patterns and infectious one-shot dancehall samples with meandering, 
+                            gauzy synth pads in order to create a deceptively broad tonal palette. Often, jungle and drum n' bass tracks evoke feelings of an out-of-control 
+                            sports car with its jacking rhythm section, while simultaneously imbuing the listener with a transcendental sense of calm through its melodic composition, 
+                            whose patterns often play at half-time, or roughly 80 bpm. 
+                            That both of these emotions exist in the same ostensibly cooperative sonic space continues to fascinate me as a listener and as an artist. 
+                           
+                        </p>
+                        <p>
+                            This internal contradiction of speed and contemplation is to me emblematic of our current moment. 
+                            The rate of societal change caused by technology and financial capitalism, coupled with large-scale failures in justice, epidemiology, equality, and ecology can feel incredibly overwhelming at an individual scale. 
+                            However, it is in this space of uncertainty that the possibility to create something new exists. 
+                            The tracks on this mix which evoke malaise and hopelessness are buoyed with tracks of ecstasy and optimism in the same way similarly contradictory feelings can coexist in everyday life.
+                        </p>
+                    </p>
+                </div>
+            </div>
+            <span class="modal-close">x</span>
+        </div>
+    </div>
+    <div class="container"><button class="btn">Info</button></div>
+
+
+    <div class="scene"></div>
+    <script src="./js/three.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
 </html>

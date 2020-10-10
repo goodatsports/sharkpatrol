@@ -1,6 +1,10 @@
 
 * {
     font-family: 'Inconsolata';
+    
+}
+
+h1,h2,h3,h4,h5,h6 {
     font-style: italic;
 }
 
@@ -10,6 +14,28 @@ body {
     animation-fill-mode: forwards;
     font-size: 22px;
     overflow: hidden;
+}
+
+ul {
+    border-top: 1px solid #000000;
+}
+
+ul li {
+    border-bottom: 1px solid #000000; 
+    margin-bottom:10px;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+
+img {
+    max-width: 40%;
+    max-height: 25%;
+    height: auto;
+    display: block; 
+    flex-wrap: wrap;
 }
 
 .container {
@@ -66,6 +92,29 @@ body {
     transition: all 0.2s;
 }
 
+.video {
+    width: 720px;
+    height: 480px;
+    max-width: 100%;
+    max-height: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+
+}
+
+
+.inline-block {
+    width: 100%;
+    display: flex;
+    padding: 5px;
+    
+}
+
+.inline-block img {
+    padding: 0 10px;
+}
+
 .modal-bg {
     position: fixed;
     z-index: 100;
@@ -96,7 +145,7 @@ body {
     border-radius: 5px;
     background-color: #ebfbf4;
     display: flex;
-    height: 50%;
+    height: 75%;
     width: 60%;
     justify-content: space-around;
     align-items: center;
@@ -178,6 +227,11 @@ canvas {
 } 
 
 @media (max-width: 800px) {
+
+    body {
+        font-size:5vw;
+    }
+
     .modal {
         height: 90%;
         width: 75%;

@@ -13,7 +13,7 @@ let scene;
 
 
 function init() {
-    
+
     // Declare variables
     container = document.querySelector('.scene');
     const planeSize = 10;
@@ -28,7 +28,7 @@ function init() {
     ambien = new THREE.AmbientLight(0xffffff, 0.5);
     dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    texture = new THREE.TextureLoader().load( '../assets/textures/texture.jpg' ); 
+    texture = new THREE.TextureLoader().load('../assets/textures/texture.jpg');
 
     // Cube mesh
     geometry = new THREE.BoxBufferGeometry(3, 3, 3);
@@ -44,16 +44,16 @@ function init() {
     planeMesh = new THREE.Mesh(planeGeo, planeMat);
 
 
-     // Renderer setup
-     renderer.setSize(container.clientWidth, container.clientHeight);
-     renderer.setPixelRatio(window.devicePixelRatio);
-     renderer.shadowMap.enabled = true;
-     renderer.shadowMap.type = THREE.BasicShadowMap;
-     container.appendChild(renderer.domElement);
+    // Renderer setup
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.BasicShadowMap;
+    container.appendChild(renderer.domElement);
 
     // Camera Setup
     camera.position.set(0, 5, 30);
-    
+
     // Ambient light
     ambien.position.set(0, 5, 3);
 
@@ -63,18 +63,18 @@ function init() {
     dirLight.shadow.mapSize.width = 512;
     dirLight.shadow.mapSize.height = 512;
     dirLight.shadow.camera.far = 100;
-    dirLight.shadow.camera.near = 0.2; 
-    
+    dirLight.shadow.camera.near = 0.2;
+
     // Cube mesh settings
-    cubeMesh.position.set(3,3,3);
+    cubeMesh.position.set(3, 3, 3);
     cubeMesh.castShadow = true;
     cubeMesh.receiveShadow = true;
-    
+
     // Floor mesh settings    
     planeMesh.rotation.x = Math.PI * -.5;
     planeMesh.position.y = cubeMesh.position.y - 5;
     planeMesh.receiveShadow = true;
-     
+
 
     // Add everything to scene
     scene.add(ambien);
@@ -89,11 +89,11 @@ function init() {
     camera.lookAt(cubeMesh.position);
 }
 
-function animateCube () {
+function animateCube() {
     yPos = centerHeight + 1.5 * Math.sin(performance.now() / 2500);
-   cubeMesh.position.y = yPos;
-   cubeMesh.rotation.z += 0.002;
-   cubeMesh.rotation.x += 0.002;
+    cubeMesh.position.y = yPos;
+    cubeMesh.rotation.z += 0.002;
+    cubeMesh.rotation.x += 0.002;
 }
 
 function animate() {
@@ -105,7 +105,7 @@ function animate() {
 function onWindowResize() {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
-  
+
     renderer.setSize(container.clientWidth, container.clientHeight);
 }
 
@@ -114,31 +114,41 @@ function debugTools() {
     scene.add(helper);
 }
 
+function openTab(tabName) {
+    var tabs = document.getElementsByClassName("tab");
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+}
+
 // Load texture
 var sceneLoader = new Promise(() => {
     init();
-}); 
+});
 
 var modalBtn = document.querySelector('.btn');
 var modalBg = document.querySelector('.modal-bg');
 var modalClose = document.querySelector('.modal-close');
 var mobileModalClose = document.querySelector('.mobile-modal-close');
 
-modalBtn.addEventListener('click', function() {
+modalBtn.addEventListener('click', function () {
     modalBg.classList.add('bg-active');
     modalBtn.className = 'hidden';
 });
 
 // Change modal close button based on window size
-    modalClose.addEventListener('click', function() {
-        modalBg.classList.remove('bg-active');
-        modalBtn.className = 'btn';
-    });
+modalClose.addEventListener('click', function () {
+    modalBg.classList.remove('bg-active');
+    modalBtn.className = 'btn';
+    openTab("about");
+});
 
-    mobileModalClose.addEventListener('click', function() {
-        modalBg.classList.remove('bg-active');
-        modalBtn.className = 'btn';
-    });
+mobileModalClose.addEventListener('click', function () {
+    modalBg.classList.remove('bg-active');
+    modalBtn.className = 'btn';
+    openTab("about");
+});
 
 
 window.addEventListener("resize", onWindowResize);
