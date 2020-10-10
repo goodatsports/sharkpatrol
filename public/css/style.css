@@ -31,10 +31,11 @@ ul li:last-child {
 
 
 img {
+    display: block; 
     max-width: 40%;
     max-height: 25%;
+    width: auto;
     height: auto;
-    display: block; 
     flex-wrap: wrap;
 }
 
