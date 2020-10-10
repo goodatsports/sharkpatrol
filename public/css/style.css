@@ -31,13 +31,14 @@ ul li:last-child {
 
 
 img {
-    display: block; 
     max-width: 40%;
     max-height: 25%;
     width: auto;
     height: auto;
     flex-wrap: wrap;
 }
+
+
 
 .container {
     position: absolute;
@@ -106,7 +107,9 @@ img {
 
 
 .inline-block {
+    display: inline-block;
     width: 100%;
+    height: auto;
     display: flex;    
     flex-wrap: wrap;
     padding: 5px;
@@ -114,7 +117,8 @@ img {
 }
 
 .inline-block img {
-    padding: 0 10px;
+    min-width: 250px;
+    padding: 5px;
 }
 
 .modal-bg {
