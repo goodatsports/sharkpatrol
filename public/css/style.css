@@ -29,7 +29,6 @@ ul li:last-child {
     border-bottom: none;
 }
 
-
 img {
     max-width: 35%;
     max-height: 35%;
@@ -37,8 +36,6 @@ img {
     height: auto;
     flex-wrap: wrap;
 }
-
-
 
 .container {
     position: absolute;
